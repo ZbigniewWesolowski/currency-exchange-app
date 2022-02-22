@@ -23,7 +23,7 @@ public class Currency {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String name;
+    private String currency;
     private String code;
     private double mid;
     private OffsetDateTime createdAt;

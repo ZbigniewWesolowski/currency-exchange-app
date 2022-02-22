@@ -12,7 +12,7 @@ public class CurrencyDtoMapper {
         return CurrencyDto.builder()
                 .code(currency.getCode())
                 .mid(currency.getMid())
-                .currencyName(currency.getName())
+                .currencyName(currency.getCurrency())
                 .build();
     }
 
@@ -20,7 +20,7 @@ public class CurrencyDtoMapper {
         return Currency.builder()
                 .code(currencyDto.getCode())
                 .mid(currencyDto.getMid())
-                .name(currencyDto.getCurrencyName())
+                .currency(currencyDto.getCurrencyName())
                 .build();
     }
 }
