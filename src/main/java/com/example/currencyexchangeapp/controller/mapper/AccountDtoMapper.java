@@ -1,11 +1,14 @@
 package com.example.currencyexchangeapp.controller.mapper;
 
 import com.example.currencyexchangeapp.controller.dto.AccountDto;
+import com.example.currencyexchangeapp.controller.dto.CreateAccountDto;
 import com.example.currencyexchangeapp.controller.dto.CurrencyDto;
 import com.example.currencyexchangeapp.model.Account;
 import com.example.currencyexchangeapp.model.Currency;
 import com.example.currencyexchangeapp.service.CurrencyService;
 import com.example.currencyexchangeapp.service.UserService;
+import com.example.currencyexchangeapp.service.exception.AccountAlreadyExistException;
+import com.example.currencyexchangeapp.service.exception.AccountDataInvalidException;
 import com.example.currencyexchangeapp.service.exception.CurrencyNotFoundException;
 import com.example.currencyexchangeapp.service.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +49,15 @@ public class AccountDtoMapper {
                 .owner(userService.findUserById(accountDto.getUserId()))
                 .currency(currencyService.getById(accountDto.getCurrencyId()))
                 .build();
+    }
+
+    public Account mappingToModel (CreateAccountDto createAccountDto) throws AccountAlreadyExistException, AccountDataInvalidException, UserNotFoundException, CurrencyNotFoundException {
+        return Account.builder()
+                .name(createAccountDto.getName())
+                .currency(currencyService.getById(createAccountDto.getCurrencyId()))
+                .id(createAccountDto.getId())
+                .number(createAccountDto.getNumber())
+                .build();
+
     }
 }

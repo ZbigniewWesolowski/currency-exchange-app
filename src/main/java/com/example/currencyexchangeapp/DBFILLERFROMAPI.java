@@ -1,5 +1,6 @@
 package com.example.currencyexchangeapp;
 
+import com.example.currencyexchangeapp.model.Account;
 import com.example.currencyexchangeapp.model.Currency;
 import com.example.currencyexchangeapp.repository.CurrencyRepository;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -11,10 +12,12 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.time.OffsetDateTime;
 
 @ Service
 public class DBFILLERFROMAPI {
@@ -43,10 +46,13 @@ public class DBFILLERFROMAPI {
 
         for (int i = 2; i < responseCuttedToRows.length - 1; i++) {
             Currency currency = mapper.readValue(responseCuttedToRows[i], Currency.class);
+            currency.setCreatedAt(OffsetDateTime.now());
             save(currency);
         }
 
         System.out.println("DB updated");
+
+
     }
 
 }

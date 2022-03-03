@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Curriencies Rates</title>
+</head>
+<body>
+<table>
+    <caption>Curriencies</caption>
+    <tr>
+    <td> 'id: '</td>
+    <td> 'name: '</td>
+    <td> 'mid: '</td>
+    <td> 'date: '</td>
+    </tr>
+
+    <tr th:each="currency: ${currencies}">
+    <td th:text="${currency.getId()}"/>
+    <td th:text="${currency.getCurrencyName()}"/>
+    <td th:text="${currency.getMid()}"/>
+    </tr>
+
+</table>
+
+</body>
+</html>
