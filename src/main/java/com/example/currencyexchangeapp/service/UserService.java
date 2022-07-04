@@ -7,8 +7,6 @@ import com.example.currencyexchangeapp.model.User;
 import com.example.currencyexchangeapp.repository.UserRepository;
 import com.example.currencyexchangeapp.service.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;

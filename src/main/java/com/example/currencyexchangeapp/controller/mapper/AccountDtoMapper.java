@@ -2,10 +2,7 @@ package com.example.currencyexchangeapp.controller.mapper;
 
 import com.example.currencyexchangeapp.controller.dto.AccountDto;
 import com.example.currencyexchangeapp.controller.dto.CreateAccountDto;
-import com.example.currencyexchangeapp.controller.dto.CurrencyDto;
 import com.example.currencyexchangeapp.model.Account;
-import com.example.currencyexchangeapp.model.Currency;
-import com.example.currencyexchangeapp.service.AccountService;
 import com.example.currencyexchangeapp.service.CurrencyService;
 import com.example.currencyexchangeapp.service.UserService;
 import com.example.currencyexchangeapp.service.exception.AccountAlreadyExistException;
@@ -15,8 +12,6 @@ import com.example.currencyexchangeapp.service.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 
 @Component
 public class AccountDtoMapper {

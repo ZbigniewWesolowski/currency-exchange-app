@@ -1,14 +1,9 @@
 package com.example.currencyexchangeapp.controller.dto;
 
-import com.example.currencyexchangeapp.model.Account;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;

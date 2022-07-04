@@ -6,15 +6,9 @@ import com.example.currencyexchangeapp.model.Account;
 import com.example.currencyexchangeapp.model.User;
 
 import com.example.currencyexchangeapp.repository.AccountRepository;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 

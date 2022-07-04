@@ -4,7 +4,6 @@ import com.example.currencyexchangeapp.controller.dto.AccountDto;
 import com.example.currencyexchangeapp.controller.dto.CreateAccountDto;
 import com.example.currencyexchangeapp.controller.mapper.AccountDtoMapper;
 import com.example.currencyexchangeapp.model.Account;
-import com.example.currencyexchangeapp.model.User;
 import com.example.currencyexchangeapp.repository.AccountRepository;
 import com.example.currencyexchangeapp.service.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
