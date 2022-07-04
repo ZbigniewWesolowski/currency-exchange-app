@@ -18,7 +18,6 @@ import java.time.OffsetDateTime;
 @Builder
 
 public class CreateAccountDto {
-    private Integer id;
     private String name;
     private String number;
     private Integer currencyId;

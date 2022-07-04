@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Transaction</title>
+</head>
+<body>
+<h1>Create transaction</h1>
+<form action="#" th:action="@{'/create-transaction/'}" th:object="${createDto}" method="post">
+    Amount:
+    <input type="text" th:field="*{amount}"/>
+    Number:
+    <input type="text" th:field="*{sendingAccountId}"/>
+
+    Currency Code:
+    <input type="text" th:field="*{reciverAccountId}"/>
+
+    <input type="submit" value="Save changes"/>
+
+</form>
+</body>
+</html>

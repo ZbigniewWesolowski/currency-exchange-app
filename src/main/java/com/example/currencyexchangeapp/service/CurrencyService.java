@@ -9,6 +9,8 @@ import com.example.currencyexchangeapp.service.exception.CurrencyNotFoundExcepti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,4 +36,21 @@ public class CurrencyService {
         return currencyRepository.findById(id)
                 .orElseThrow(CurrencyNotFoundException::new);
     }
-}
+
+    public String currencyIdTranslator (Integer id) {
+        String currencyName = new String();
+        currencyName = currencyRepository.getById(id).getCode();
+        return currencyName;
+    }
+
+    public Integer currencyCodeTranslator (String code) {
+        Integer currencyId;
+        HashMap currenciesDictionary = new HashMap<String, Integer>();
+        List <Currency> curriencies = new ArrayList<>();
+        for (int i = 0; i < curriencies.size(); i++) {
+            currenciesDictionary.put(curriencies.get(i).getCode(), curriencies.get(i).getId());
+        }
+        return currencyId = (Integer) currenciesDictionary.get(code);
+        }
+    }
+

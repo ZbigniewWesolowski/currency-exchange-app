@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions table</title>
+</head>
+<body>
+
+<table>
+    <caption>Transactions</caption>
+    <tr>
+        <td> 'id: '</td>
+        <td> 'amount: '</td>
+        <td> 'createdAt: '</td>
+        <td> 'from: '</td>
+        <td> 'to: '</td>
+    </tr>
+
+    <tr th:each="transaction: ${transactions}">
+        <td th:text="${transaction.getId()}"/>
+        <td th:text="${transaction.getAmount()}"/>
+        <td th:text="${transaction.getCreatedAt()}"/>
+        <td th:text="${transaction.getAccountSenderId()}"/>
+        <td th:text="${transaction.getAccountReciverId()}"/>
+
+    </tr>
+</table>
+</body>
+</html>

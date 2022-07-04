@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>create account</title>
 </head>
 <body>
+<h1>Create account</h1>
+<form action="#" th:action="@{'/create-account/'}" th:object="${createDto}" method="post">
+    Name:
+    <input type="text" th:field="*{name}"/>
+    Number:
+    <input type="text" th:field="*{number}"/>
 
+    Currency Code:
+    <input type="text" th:field="*{currencyId}"/>
+
+    <input type="submit" value="Save changes"/>
+
+</form>
 </body>
 </html>

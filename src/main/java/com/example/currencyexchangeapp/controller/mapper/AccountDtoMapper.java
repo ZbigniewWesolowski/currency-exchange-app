@@ -5,6 +5,7 @@ import com.example.currencyexchangeapp.controller.dto.CreateAccountDto;
 import com.example.currencyexchangeapp.controller.dto.CurrencyDto;
 import com.example.currencyexchangeapp.model.Account;
 import com.example.currencyexchangeapp.model.Currency;
+import com.example.currencyexchangeapp.service.AccountService;
 import com.example.currencyexchangeapp.service.CurrencyService;
 import com.example.currencyexchangeapp.service.UserService;
 import com.example.currencyexchangeapp.service.exception.AccountAlreadyExistException;
@@ -25,6 +26,7 @@ public class AccountDtoMapper {
     @Autowired
     CurrencyService currencyService;
 
+
     public AccountDto mappingtoDto(Account account) {
         return AccountDto.builder()
                 .id(account.getId())
@@ -33,7 +35,7 @@ public class AccountDtoMapper {
                 .balance(account.getBalance())
                 .createdAt(account.getCreatedAt())
                 .updatedAt(account.getUpdatedAt())
-                .userId(account.getOwner().getId())
+//                .userId(account.getOwner().getId())
                 .currencyId(account.getCurrency().getId())
                 .build();
     }
@@ -55,7 +57,6 @@ public class AccountDtoMapper {
         return Account.builder()
                 .name(createAccountDto.getName())
                 .currency(currencyService.getById(createAccountDto.getCurrencyId()))
-                .id(createAccountDto.getId())
                 .number(createAccountDto.getNumber())
                 .build();
 

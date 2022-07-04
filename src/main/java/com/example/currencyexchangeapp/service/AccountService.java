@@ -4,6 +4,7 @@ import com.example.currencyexchangeapp.controller.dto.AccountDto;
 import com.example.currencyexchangeapp.controller.dto.CreateAccountDto;
 import com.example.currencyexchangeapp.controller.mapper.AccountDtoMapper;
 import com.example.currencyexchangeapp.model.Account;
+import com.example.currencyexchangeapp.model.User;
 import com.example.currencyexchangeapp.repository.AccountRepository;
 import com.example.currencyexchangeapp.service.exception.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,13 +52,12 @@ public class AccountService {
         if (createAccountDto.getName() == null || createAccountDto.getNumber().length() < 7) {
             throw new AccountDataInvalidException();
         }
-        if (accountRepository.existsById(createAccountDto.getId())) {
-            throw new AccountAlreadyExistException();
-        }
+
         Account newAccount = accountDtoMapper.mappingToModel(createAccountDto);
         newAccount.setBalance(BigDecimal.ZERO);
         newAccount.setCreatedAt(OffsetDateTime.now());
         newAccount.setUpdatedAt(OffsetDateTime.now());
+        //TODO dopisywanie właściciela na podstawie sesji
         Account savedAccount = accountRepository.save(newAccount);
 
         return accountDtoMapper.mappingtoDto(savedAccount);
