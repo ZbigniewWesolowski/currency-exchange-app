@@ -9,10 +9,11 @@
 <form action="#" th:action="@{'/create-transaction/'}" th:object="${createDto}" method="post">
     Amount:
     <input type="text" th:field="*{amount}"/>
-    Number:
+    From Account:
+
     <input type="text" th:field="*{sendingAccountId}"/>
 
-    Currency Code:
+    To Account:
     <input type="text" th:field="*{reciverAccountId}"/>
 
     <input type="submit" value="Save changes"/>
